@@ -426,6 +426,35 @@ int main(int argc, const char * argv[]) {
                     temp = temp/2;
                     out[len/2 - 1] = temp + '0';
                     temp = -1;
+                    for (i = 0; i < len - 1; i++) {
+                        temp2 = out[i] + out[len - i - 2] - 96 + crr2;
+                        temp = temp2%10;
+                        if (num[len - 1 - i] != temp + '0') {check = 1;  break;}
+                        crr2 = 0;
+                        if (temp2 > 9) crr2 = 1;
+                    }
+                    if (check == 1) {end = 1;}
+                    if (end == 0 && (out[0] != '0' || out[len - 2] != '0') && (num[len/2 - 1] <= num[len/2 + 1] || (num[len/2 - 1] =='9' && num[len/2 + 1] == '0')))   {
+                        fprintf(stdout, "%s\n", out);
+                        count++;
+                        break;
+                    }
+                    check = 0;
+                    temp = -1;
+                    temp2 = -1;
+                    crr2 = 0;
+                    end = 0;
+                    temp = num[len/2] - 39;
+                    temp = temp/2;
+                    out[len/2 - 1] = temp + '0';
+                    temp = -1;
+                    for (i = 0; i < len - 1; i++) {
+                        temp2 = out[i] + out[len - i - 2] - 96 + crr2;
+                        temp = temp2%10;
+                        if (num[len - 1 - i] != temp + '0') {check = 1;  break;}
+                        crr2 = 0;
+                        if (temp2 > 9) crr2 = 1;
+                    }
                     if (check == 1) {end = 1;}
                     if (end == 0 && (out[0] != '0' || out[len - 2] != '0'))   {
                         fprintf(stdout, "%s\n", out);
@@ -807,6 +836,52 @@ int main(int argc, const char * argv[]) {
                 temp = num[len/2] - 38;
                 temp = temp/2;
                 out[len/2] = temp + '0';
+                temp = -1;
+                for (i = 0; i < len; i++) {
+                    temp2 = out[i] + out[len - i - 1] - 96 + crr2;
+                    temp = temp2%10;
+                    if (num[len - 1 - i] != temp + '0') {check = 1;  break;}
+                    crr2 = 0;
+                    if (temp2 > 9) crr2 = 1;
+                }
+                if (check == 1 || out[0] > num[0]) {end = 1;}
+                if (end == 0 && (out[0] != '0' || out[len - 1] != '0'))   {
+                    if (out[0] == '0') reverse(out, len);
+                    fprintf(stdout, "%s\n", out);
+                    count++;
+                    continue;
+                }
+                check = 0;
+                temp = -1;
+                temp2 = -1;
+                crr2 = 0;
+                end = 0;
+                temp = num[len/2] - 49;
+                temp = temp/2;
+                out[len/2] = temp + '0';
+                temp = -1;
+                for (i = 0; i < len; i++) {
+                    temp2 = out[i] + out[len - i - 1] - 96 + crr2;
+                    temp = temp2%10;
+                    if (num[len - 1 - i] != temp + '0') {check = 1;  break;}
+                    crr2 = 0;
+                    if (temp2 > 9) crr2 = 1;
+                }
+                if (check == 1 || out[0] > num[0]) {end = 1;}
+                if (end == 0 && (out[0] != '0' || out[len - 1] != '0'))   {
+                    if (out[0] == '0') reverse(out, len);
+                    fprintf(stdout, "%s\n", out);
+                    count++;
+                    continue;
+                }
+                check = 0;
+                temp = -1;
+                temp2 = -1;
+                crr2 = 0;
+                end = 0;
+                temp = num[len/2] - 39;
+                temp = temp/2;
+                out[len/2 ] = temp + '0';
                 temp = -1;
                 for (i = 0; i < len; i++) {
                     temp2 = out[i] + out[len - i - 1] - 96 + crr2;
